@@ -1,3 +1,5 @@
+# Avalição de G2 Joao Paulo
+
 # Software de gerenciamento e avaliação de propostas de Estágio e TCC
 
 Este é um repositório de um software desenvolvido para acompanhamento do conteúdo da disciplina Linguagem de Programação para a Web, ministrada pelo prof. Jackson Gomes (jgomes@ceulp.edu.br) no CEULP/ULBRA, em Palmas - TO.
