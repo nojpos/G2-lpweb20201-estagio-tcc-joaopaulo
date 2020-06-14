@@ -8,6 +8,8 @@ import { InicioComponent } from './inicio/inicio.component';
 import { HomeInicioComponent } from './home-inicio/home-inicio.component';
 import { PropostasDeTCCComponent } from './propostas-de-tcc/propostas-de-tcc.component';
 import { PropostaDeTCCComponent } from './proposta-de-tcc/proposta-de-tcc.component';
+import { ProfessorComponent } from './professor/professor.component';
+import { CadastrarProfessorComponent } from './professor/cadastrar-professor/cadastrar-professor.component';
 
 
 const routes: Routes = [
@@ -18,6 +20,8 @@ const routes: Routes = [
     path: 'inicio', component: InicioComponent, children: [
       { path: 'propostas-de-tcc', component: PropostasDeTCCComponent },
       { path: 'propostas-de-tcc/:id', component: PropostaDeTCCComponent },
+      { path: 'professores', component: ProfessorComponent },
+      { path: 'professor-cadastrar', component: CadastrarProfessorComponent },
       { path: '', component: HomeInicioComponent }
     ]
   },

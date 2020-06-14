@@ -1,0 +1,18 @@
+<div class="d-flex w-100 justify-content-between mb-4">
+    <h5>Lista de Professores</h5>
+    <a type="button" class="btn btn-sm btn-success" [routerLink]="['/inicio', 'professor-cadastrar']">Novo</a>
+</div>
+
+<div class="list-group">
+    <li class="list-group-item list-group-item-action flex-column align-items-start" *ngFor="let item of professores">
+        <div class="d-flex w-100 justify-content-between">
+            <h6 class="mb-1">{{item.id}} - {{item.funcionario.nome}} / {{item.funcionario.cgu}}</h6>
+            <h6 class="mb-1">{{item.funcao | titlecase }}</h6>
+            <small>Modificado: {{item.atualizado_em | date: 'short'}}</small>
+        </div>
+        <div class="d-flex w-100 justify-content-between">
+            <p class="mb-1">{{item.curso.nome}}</p>
+            <button type="button" class="btn btn-sm btn-danger" (click)="excluir(item.id)">Excluir</button>
+        </div>
+    </li>
+</div>

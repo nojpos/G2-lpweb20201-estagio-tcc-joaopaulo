@@ -1,0 +1,65 @@
+<form [formGroup]="cadastroForm" (ngSubmit)="salvar()">
+    <div class="container">
+
+        <h5>Cadastrar Perfil</h5>
+
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-4 col-md-3 col-lg-2 col-xl-12">
+                        <label class="col-form-label-sm custom-select-label">Curso<span class="text-danger">*</span></label>
+                        <select id="curso_id" name="curso_id"
+                            class="form-control form-control-sm" formControlName="curso_id"
+                            [ngClass]="{'is-invalid': cadastroForm.get('curso_id').errors && (cadastroForm.get('curso_id').dirty || cadastroForm.get('curso_id').touched)}">
+                            <option *ngFor="let item of listaCurso" [value]="item.id">
+                                {{ item.id  }} - {{ item.nome }}</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            <span *ngIf="cadastroForm.get('curso_id').errors?.required && (cadastroForm.get('curso_id').dirty || cadastroForm.get('curso_id').touched)">
+                                Curso é obrigatório
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4 col-md-3 col-lg-2 col-xl-12">
+                        <label class="col-form-label-sm custom-select-label">Funcionário<span class="text-danger">*</span></label>
+                        <select id="funcionario_id" name="funcionario_id"
+                            class="form-control form-control-sm" formControlName="funcionario_id"
+                            [ngClass]="{'is-invalid': cadastroForm.get('funcionario_id').errors && (cadastroForm.get('funcionario_id').dirty || cadastroForm.get('funcionario_id').touched)}">
+                            <option *ngFor="let item of listaFuncionario" [value]="item.id">
+                                {{ item.id  }} - {{ item.nome }}</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            <span *ngIf="cadastroForm.get('funcionario_id').errors?.required && (cadastroForm.get('funcionario_id').dirty || cadastroForm.get('funcionario_id').touched)">
+                                Funcionário é obrigatório
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4 col-md-3 col-lg-2 col-xl-12">
+                        <label class="col-form-label-sm custom-select-label">Função<span class="text-danger">*</span></label>
+                        <select id="funcao" name="funcao"
+                            class="form-control form-control-sm" formControlName="funcao"
+                            [ngClass]="{'is-invalid': cadastroForm.get('funcao').errors && (cadastroForm.get('funcao').dirty || cadastroForm.get('funcao').touched)}">
+                            <option *ngFor="let item of listaFuncao" [value]="item.descricao">
+                                {{ item.descricao | titlecase }}</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            <span *ngIf="cadastroForm.get('funcao').errors?.required && (cadastroForm.get('funcao').dirty || cadastroForm.get('funcao').touched)">
+                                Função é obrigatório
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <button type="submit" class="btn btn-sm btn-success float-right" [disabled]="!cadastroForm.valid"><i
+                        class="fas fa-check"></i> Salvar</button>
+                <a class="btn btn-sm btn-secondary float-right mr-3" [routerLink]="['/inicio/professores']"><i
+                        class="fas fa-angle-left"></i> Voltar</a>
+            </div>
+        </div>
+    </div>
+</form>
